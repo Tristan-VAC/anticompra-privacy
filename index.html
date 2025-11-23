@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Política de Privacidad – Anti-Compra OS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg-main: #050816;
+      --bg-card: rgba(13, 17, 23, 0.92);
+      --bg-chip: rgba(148, 163, 184, 0.12);
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.15);
+      --accent-strong: #16a34a;
+      --text-main: #e5e7eb;
+      --text-soft: #9ca3af;
+      --border-subtle: rgba(148, 163, 184, 0.28);
+      --shadow-soft: 0 22px 80px rgba(0, 0, 0, 0.65);
+      --radius-xl: 22px;
+      --radius-2xl: 28px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, #1e293b 0, transparent 60%),
+        radial-gradient(circle at bottom right, #4ade80 0, transparent 55%),
+        var(--bg-main);
+      color: var(--text-main);
+      min-height: 100%;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      padding: 32px 16px 48px;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 960px;
+      position: relative;
+    }
+
+    .page::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 15% 0%, rgba(34, 197, 94, 0.18), transparent 60%),
+        radial-gradient(circle at 85% 100%, rgba(59, 130, 246, 0.16), transparent 60%);
+      opacity: 0.7;
+      z-index: -1;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      margin-bottom: 24px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .header-inner {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.88));
+      border-radius: 999px;
+      padding: 14px 22px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      box-shadow: 0 18px 60px rgba(15, 23, 42, 0.95);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0%, #bbf7d0 0, #16a34a 40%, #1f2937 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 16px 40px rgba(22, 163, 74, 0.7);
+      color: #ecfdf5;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0.06em;
+    }
+
+    .header-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .header-title {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .header-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px var(--accent-soft);
+    }
+
+    .header-sub {
+      margin-top: 2px;
+      font-size: 12px;
+      color: var(--text-soft);
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .header-meta {
+      display: flex;
+      gap: 8px;
+      font-size: 11px;
+      align-items: center;
+    }
+
+    .chip {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: var(--bg-chip);
+      color: var(--text-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .chip strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .main-card {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(2, 6, 23, 0.96));
+      border-radius: var(--radius-2xl);
+      padding: 26px 24px 28px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .main-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(34, 197, 94, 0.08), transparent 55%),
+        radial-gradient(circle at 90% 100%, rgba(94, 234, 212, 0.06), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .main-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .title-block {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: flex-start;
+      margin-bottom: 22px;
+      border-bottom: 1px solid rgba(31, 41, 55, 0.9);
+      padding-bottom: 18px;
+    }
+
+    .title-main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 26px;
+      line-height: 1.1;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: #f9fafb;
+    }
+
+    .subtitle {
+      margin-top: 6px;
+      font-size: 13px;
+      color: var(--text-soft);
+      max-width: 460px;
+    }
+
+    .info-panel {
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.8));
+      border: 1px solid rgba(148, 163, 184, 0.36);
+      padding: 10px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 11px;
+      min-width: 220px;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .info-label {
+      color: var(--text-soft);
+      white-space: nowrap;
+    }
+
+    .info-value {
+      font-weight: 500;
+      color: #e5e7eb;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .info-note {
+      font-size: 10px;
+      color: var(--text-soft);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.9fr) minmax(0, 1.1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 880px) {
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .content {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-main);
+    }
+
+    .toc {
+      border-radius: 18px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 14px 14px 12px;
+      font-size: 13px;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.95);
+    }
+
+    .toc-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-soft);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .toc-title span {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .toc ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .toc li {
+      margin-bottom: 4px;
+    }
+
+    .toc a {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--text-soft);
+      text-decoration: none;
+      padding: 4px 6px;
+      border-radius: 999px;
+      transition: background 0.15s ease, color 0.15s ease, transform 0.08s ease;
+    }
+
+    .toc a span {
+      font-size: 11px;
+      color: #6ee7b7;
+      min-width: 16px;
+    }
+
+    .toc a:hover {
+      background: rgba(15, 118, 110, 0.24);
+      color: #e5e7eb;
+      transform: translateX(2px);
+    }
+
+    .section {
+      margin-bottom: 18px;
+      padding: 12px 12px 6px;
+      border-radius: 16px;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.07), transparent 55%);
+    }
+
+    .section:last-of-type {
+      margin-bottom: 4px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .section-number {
+      font-size: 13px;
+      font-weight: 600;
+      color: #86efac;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(22, 163, 74, 0.12);
+      border: 1px solid rgba(22, 163, 74, 0.4);
+    }
+
+    .section-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #f9fafb;
+    }
+
+    .section p {
+      margin: 4px 0 6px;
+      color: var(--text-soft);
+    }
+
+    .section ul {
+      margin: 4px 0 8px 18px;
+      padding-left: 0;
+      color: var(--text-soft);
+    }
+
+    .section li {
+      margin-bottom: 2px;
+    }
+
+    .section strong {
+      color: #e5e7eb;
+    }
+
+    .highlight-box {
+      border-radius: 16px;
+      padding: 10px 12px;
+      border: 1px solid rgba(34, 197, 94, 0.6);
+      background: radial-gradient(circle at top left, rgba(22, 163, 74, 0.18), transparent 70%);
+      font-size: 12px;
+      margin-top: 6px;
+      color: #e5e7eb;
+    }
+
+    .highlight-box span {
+      font-weight: 600;
+    }
+
+    .tagline {
+      font-size: 11px;
+      margin-top: 6px;
+      color: var(--text-soft);
+    }
+
+    .tagline strong {
+      color: #e5e7eb;
+    }
+
+    .footer-note {
+      margin-top: 14px;
+      font-size: 11px;
+      color: var(--text-soft);
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .footer-note span {
+      opacity: 0.9;
+    }
+
+    a {
+      color: #6ee7b7;
+    }
+
+    a:hover {
+      color: #a7f3d0;
+    }
+
+    .scroll-top {
+      position: fixed;
+      right: 18px;
+      bottom: 20px;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: radial-gradient(circle at 30% 0%, rgba(34, 197, 94, 0.35), rgba(15, 23, 42, 0.96));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #ecfdf5;
+      cursor: pointer;
+      box-shadow: 0 18px 60px rgba(15, 23, 42, 0.95);
+      z-index: 20;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.2s ease, background 0.15s ease;
+      opacity: 0.9;
+    }
+
+    .scroll-top:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 22px 78px rgba(15, 23, 42, 1);
+      background: radial-gradient(circle at 30% 0%, rgba(34, 197, 94, 0.5), rgba(15, 23, 42, 0.96));
+    }
+
+    .scroll-top:active {
+      transform: translateY(0);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.9);
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 18px 12px 26px;
+      }
+
+      .header-inner {
+        border-radius: 18px;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .header-meta {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .title-block {
+        flex-direction: column;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      .main-card {
+        padding: 18px 14px 20px;
+      }
+
+      .section {
+        padding: 10px 10px 6px;
+      }
+
+      .scroll-top {
+        width: 36px;
+        height: 36px;
+        right: 14px;
+        bottom: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page" id="top">
+
+    <header class="header">
+      <div class="header-inner">
+        <div class="logo-badge">AC</div>
+        <div class="header-text">
+          <div class="header-title">
+            <span class="header-dot"></span>
+            Política de privacidad Anti-Compra OS
+          </div>
+          <div class="header-sub">
+            Tu mapa de datos para gastar menos… y decidir mejor.
+          </div>
+        </div>
+        <div class="header-meta">
+          <div class="chip">
+            <span>📅</span>
+            <span>Actualizada:</span>
+            <strong>22/11/2025</strong>
+          </div>
+          <div class="chip">
+            <span>🔒</span>
+            <span>Privacidad centrada en el usuario</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-card">
+      <div class="main-card-inner">
+        <section class="title-block">
+          <div class="title-main">
+            <h1>Política de Privacidad</h1>
+            <p class="subtitle">
+              Esta Política de Privacidad explica cómo Anti-Compra OS (“la App”) recopila, utiliza y protege tus datos personales.
+              Al utilizar la App, aceptas las prácticas descritas en este documento.
+            </p>
+          </div>
+          <aside class="info-panel">
+            <div class="info-row">
+              <span class="info-label">Estado del documento</span>
+              <span class="info-value">Vigente</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Ámbito</span>
+              <span class="info-value">Usuarios de la App</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Propósito</span>
+              <span class="info-value">Transparencia de datos</span>
+            </div>
+            <p class="info-note">
+              Léela con calma: aquí se resume cómo se mueve, protege y transforma tu información dentro de Anti-Compra OS.
+            </p>
+          </aside>
+        </section>
+
+        <section class="grid">
+          <article class="content">
+            <!-- 1. Responsable -->
+            <section class="section" id="s1">
+              <div class="section-header">
+                <div class="section-number">1</div>
+                <h2 class="section-title">¿Quién es el responsable?</h2>
+              </div>
+              <p>
+                El responsable del tratamiento de los datos es:
+              </p>
+              <p>
+                <strong>Nombre del responsable:</strong> [Tu nombre / nombre legal o marca]<br />
+                <strong>Correo de contacto:</strong> [tu correo de soporte, ej. soporte@anticompra.com]
+              </p>
+              <p>
+                Este proyecto se ejecuta como una aplicación independiente y utiliza servicios de terceros
+                (principalmente Firebase de Google) para autenticación, almacenamiento y analítica.
+              </p>
+            </section>
+
+            <!-- 2. Datos que recopilamos -->
+            <section class="section" id="s2">
+              <div class="section-header">
+                <div class="section-number">2</div>
+                <h2 class="section-title">¿Qué datos recopilamos?</h2>
+              </div>
+              <p>
+                Anti-Compra OS recopila y almacena los siguientes tipos de datos:
+              </p>
+
+              <p><strong>2.1. Datos de cuenta</strong></p>
+              <ul>
+                <li>Correo electrónico</li>
+                <li>Identificador de usuario generado por Firebase Auth</li>
+                <li>Nombre visible (display name) si decides configurarlo</li>
+                <li>Fechas de creación y actualización de tu cuenta</li>
+              </ul>
+
+              <p><strong>2.2. Datos de uso dentro de la App</strong></p>
+              <p>Para poder mostrarte estadísticas, rachas e historial, guardamos:</p>
+              <p><em>Gastos que registras:</em></p>
+              <ul>
+                <li>Categoría del gasto</li>
+                <li>Monto</li>
+                <li>Descripción</li>
+                <li>Fecha y hora</li>
+                <li>Indicador de si consideras el gasto esencial o no</li>
+                <li>Información de si el gasto rompe alguna regla de no gasto</li>
+              </ul>
+              <p><em>Reglas de no gasto que creas:</em></p>
+              <ul>
+                <li>Tipo de regla (por monto, categoría, palabra clave, horario, etc.)</li>
+                <li>Valores asociados (ej. categoría, monto máximo, palabra clave)</li>
+                <li>Estado (activa / inactiva)</li>
+                <li>Fechas de creación y actualización</li>
+              </ul>
+              <p>
+                Estos datos se asocian siempre a tu usuario y no se comparten con otros usuarios.
+              </p>
+
+              <p><strong>2.3. Datos técnicos y de diagnóstico</strong></p>
+              <p>
+                Podemos utilizar servicios como Firebase Analytics y Firebase Crashlytics para recopilar información técnica, por ejemplo:
+              </p>
+              <ul>
+                <li>Versión de la app</li>
+                <li>Modelo de dispositivo y sistema operativo</li>
+                <li>Eventos básicos (ej. creación de un gasto o regla)</li>
+                <li>Información de errores y cierres inesperados</li>
+              </ul>
+              <p>
+                Esta información se utiliza únicamente para mejorar la estabilidad y el rendimiento de la App.
+              </p>
+            </section>
+
+            <!-- 3. Para qué usamos datos -->
+            <section class="section" id="s3">
+              <div class="section-header">
+                <div class="section-number">3</div>
+                <h2 class="section-title">¿Para qué utilizamos tus datos?</h2>
+              </div>
+              <p>Utilizamos tus datos con los siguientes fines:</p>
+
+              <p><strong>Prestación del servicio principal</strong></p>
+              <ul>
+                <li>Permitirte iniciar sesión en la App.</li>
+                <li>Guardar tus gastos y reglas de no gasto.</li>
+                <li>Calcular rachas, estadísticas, violaciones de reglas y ahorro potencial.</li>
+              </ul>
+
+              <p><strong>Mejora del producto</strong></p>
+              <ul>
+                <li>Analizar de forma agregada cómo se usa la App para priorizar nuevas funcionalidades y mejoras.</li>
+                <li>Detectar y corregir errores técnicos.</li>
+              </ul>
+
+              <p><strong>Soporte al usuario</strong></p>
+              <ul>
+                <li>Responder a consultas o solicitudes que hagas por correo u otros canales de soporte.</li>
+                <li>Ayudarte a resolver problemas relacionados con tu cuenta.</li>
+              </ul>
+            </section>
+
+            <!-- 4. Base legal -->
+            <section class="section" id="s4">
+              <div class="section-header">
+                <div class="section-number">4</div>
+                <h2 class="section-title">Base legal / fundamento</h2>
+              </div>
+              <p>
+                El tratamiento de tus datos se basa en:
+              </p>
+              <ul>
+                <li><strong>Tu consentimiento</strong>, al crear una cuenta y usar la App.</li>
+                <li>
+                  <strong>La ejecución del servicio</strong>, necesario para poder ofrecerte funcionalidades como el registro de
+                  gastos, creación de reglas, dashboards, rachas, etc.
+                </li>
+                <li>
+                  <strong>Interés legítimo</strong>, para mejorar la estabilidad, seguridad y rendimiento de la app
+                  (por ejemplo, analizando errores y fallos).
+                </li>
+              </ul>
+              <p>
+                Puedes retirar tu consentimiento eliminando tu cuenta (ver sección 7).
+              </p>
+            </section>
+
+            <!-- 5. Compartición -->
+            <section class="section" id="s5">
+              <div class="section-header">
+                <div class="section-number">5</div>
+                <h2 class="section-title">¿Con quién compartimos tus datos?</h2>
+              </div>
+              <p>
+                Anti-Compra OS <strong>no vende</strong> tus datos a terceros.
+              </p>
+              <p>Usamos principalmente los siguientes proveedores:</p>
+              <p><strong>Firebase (Google LLC)</strong><br />Para:</p>
+              <ul>
+                <li>Autenticación (Firebase Auth)</li>
+                <li>Almacenamiento de datos (Cloud Firestore)</li>
+                <li>Analítica y crash reports (Firebase Analytics / Crashlytics)</li>
+              </ul>
+              <p>
+                Estos proveedores pueden procesar datos en servidores ubicados fuera de tu país
+                (por ejemplo, en Estados Unidos o la Unión Europea), bajo las condiciones y mecanismos de protección de datos de Google.
+              </p>
+            </section>
+
+            <!-- 6. Conservación -->
+            <section class="section" id="s6">
+              <div class="section-header">
+                <div class="section-number">6</div>
+                <h2 class="section-title">¿Cuánto tiempo conservamos tus datos?</h2>
+              </div>
+              <p>
+                Conservamos tus datos mientras mantengas una cuenta activa en la App.
+              </p>
+              <p>
+                Cuando eliminas tu cuenta desde la sección de Perfil:
+              </p>
+              <ul>
+                <li>Se eliminan tus gastos asociados.</li>
+                <li>Se eliminan tus reglas de no gasto.</li>
+                <li>Se elimina tu documento de usuario en la base de datos.</li>
+                <li>Se elimina tu usuario en Firebase Auth (cuando es técnicamente posible).</li>
+              </ul>
+              <p>
+                Es posible que queden registros anónimos o agregados en sistemas de logging y analítica,
+                que no permiten identificarte directamente.
+              </p>
+            </section>
+
+            <!-- 7. Derechos -->
+            <section class="section" id="s7">
+              <div class="section-header">
+                <div class="section-number">7</div>
+                <h2 class="section-title">Tus derechos sobre los datos</h2>
+              </div>
+              <p>Como usuario, tienes derecho a:</p>
+
+              <p><strong>Acceder a tus datos</strong></p>
+              <ul>
+                <li>Puedes ver tus gastos, reglas y estadísticas directamente en la App.</li>
+                <li>Puedes usar la opción “Exportar datos” para generar un archivo con tus datos (gastos + reglas + cuenta) en formato JSON.</li>
+              </ul>
+
+              <p><strong>Rectificar tus datos</strong></p>
+              <ul>
+                <li>Puedes editar tu nombre visible y modificar/eliminar reglas y gastos.</li>
+              </ul>
+
+              <p><strong>Eliminar tu cuenta y datos</strong></p>
+              <ul>
+                <li>Desde el Perfil, puedes usar la opción “Eliminar cuenta” para borrar tus datos y desactivar tu cuenta.</li>
+              </ul>
+
+              <p><strong>Contactar</strong></p>
+              <p>
+                Si tienes dudas sobre el tratamiento de tus datos, puedes escribir a: <br />
+                <strong>[tu correo de soporte]</strong>
+              </p>
+            </section>
+
+            <!-- 8. Seguridad -->
+            <section class="section" id="s8">
+              <div class="section-header">
+                <div class="section-number">8</div>
+                <h2 class="section-title">Seguridad de la información</h2>
+              </div>
+              <p>
+                Tomamos medidas razonables para proteger tus datos:
+              </p>
+              <ul>
+                <li>Acceso autenticado mediante Firebase Auth.</li>
+                <li>Comunicación cifrada (HTTPS) entre la App y Firebase.</li>
+                <li>Acceso limitado a la base de datos mediante reglas de seguridad de Firestore, que restringen el acceso a tus datos solo a tu usuario.</li>
+              </ul>
+              <p>
+                Sin embargo, ningún sistema es 100% seguro, por lo que no podemos garantizar absoluta invulnerabilidad ante incidentes de seguridad.
+              </p>
+            </section>
+
+            <!-- 9. Cambios -->
+            <section class="section" id="s9">
+              <div class="section-header">
+                <div class="section-number">9</div>
+                <h2 class="section-title">Cambios en esta política</h2>
+              </div>
+              <p>
+                Podemos actualizar esta Política de Privacidad para reflejar cambios en la App o en la normativa aplicable.
+              </p>
+              <p>
+                Cuando hagamos cambios importantes, intentaremos notificarlo dentro de la App o a través de otros medios razonables.
+                La versión actualizada estará siempre disponible en el enlace de la Política de Privacidad.
+              </p>
+            </section>
+
+            <!-- 10. Contacto -->
+            <section class="section" id="s10">
+              <div class="section-header">
+                <div class="section-number">10</div>
+                <h2 class="section-title">Contacto</h2>
+              </div>
+              <p>
+                Si tienes preguntas, comentarios o deseas ejercer tus derechos, puedes contactar a:
+              </p>
+              <p>
+                <strong>Correo de soporte:</strong> [tu correo]<br />
+                <strong>Asunto sugerido:</strong> “Privacidad – Anti-Compra OS”
+              </p>
+            </section>
+
+            <div class="tagline">
+              <strong>Anti-Compra OS</strong> existe para ayudarte a gastar mejor, no para explotar tus datos.
+              Tu información es parte de tu estrategia, no de nuestro modelo de negocio.
+            </div>
+          </article>
+
+          <!-- Índice -->
+          <aside class="toc">
+            <div class="toc-title">
+              <span></span>
+              Mapa rápido de esta política
+            </div>
+            <ul>
+              <li><a href="#s1"><span>1.</span> ¿Quién es el responsable?</a></li>
+              <li><a href="#s2"><span>2.</span> ¿Qué datos recopilamos?</a></li>
+              <li><a href="#s3"><span>3.</span> ¿Para qué los usamos?</a></li>
+              <li><a href="#s4"><span>4.</span> Base legal</a></li>
+              <li><a href="#s5"><span>5.</span> Compartición de datos</a></li>
+              <li><a href="#s6"><span>6.</span> Conservación</a></li>
+              <li><a href="#s7"><span>7.</span> Tus derechos</a></li>
+              <li><a href="#s8"><span>8.</span> Seguridad</a></li>
+              <li><a href="#s9"><span>9.</span> Cambios</a></li>
+              <li><a href="#s10"><span>10.</span> Contacto</a></li>
+            </ul>
+
+            <div class="highlight-box">
+              <span>Tip rápido:</span> antes de usar Anti-Compra OS en serio,
+              rellena los campos entre corchetes <strong>[ ]</strong> con tu nombre legal y correo de soporte.
+            </div>
+
+            <div class="footer-note">
+              <span>Versión: 1.0 – 22/11/2025</span>
+              <span>Documento generado para Anti-Compra OS.</span>
+            </div>
+          </aside>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <button class="scroll-top" onclick="document.getElementById('top').scrollIntoView({ behavior: 'smooth' });" aria-label="Volver al inicio">
+    ↑
+  </button>
+
+</body>
+</html>
